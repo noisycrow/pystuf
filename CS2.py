@@ -24,4 +24,4 @@ end2 = word2[half2:]
 
 print(end1,end2)
 
-# arf barf garf
+# arf
