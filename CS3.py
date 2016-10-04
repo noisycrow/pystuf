@@ -11,7 +11,7 @@ del slang[:2]
 print(slang)
 
 print('Dictionaries')
-slang = {'cheerio':'goodbye','knackered':'tired'}
+slang = {'cheerio': 'goodbye', 'knackered': 'tired'}
 result = slang.get('bloody')
 
 if result:
