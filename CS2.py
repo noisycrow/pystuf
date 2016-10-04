@@ -23,3 +23,5 @@ half2 = len(word2)//2
 end2 = word2[half2:]
 
 print(end1,end2)
+
+# arf
