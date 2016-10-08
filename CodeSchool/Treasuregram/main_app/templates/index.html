@@ -1,55 +1,46 @@
 {% load staticfiles %}
 
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}"
-        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-        <title>TreasureGram</title>
-    </head>
-    <body>
-        <nav class="navbar navbar-default navbar-static-top text-center">
-            <a href="/">
-                <img src="{% static 'images/logo.png' %}" alt="TreasureGram">
-            </a></nav>
-    <main class="container" role="main">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'style.css' %}" rel="stylesheet" media="screen">
+    <title>TreasureGram</title>
+</head>
+<body>
+
+  <nav class="navbar navbar-default navbar-static-top text-center" role="navigation">
+      <a href="/"><img src="{% static "images/logo.png" %}" height="90"  ></a>
+  </nav>
+
+  <main class="container container--mw700">
+    <div class="row">
+    {% for treasure in treasures %}
+      <div class="col-md-4">
+
         <div class="treasure panel panel-default">
-        {% for treasure in treasures %}
-            <div class="panel-heading">
-                <h2 class="panel-title">{{ treasure.name }}</h2>
+          <div class="panel-heading">
+            <h3 class="panel-title">{{ treasure.name }}</h3>
+          </div> 
+          <div class="panel-body">
+            <div class="treasure-photo">
+              <img src="{{ treasure.img_url }}" >
             </div>
-            <div class="panel-body">
-                <table class="treasure-table">
-                    <tr>
-                        <th>
-                            <img src="{% static 'images/material-icon.png' %}" >
-                            Material: 
-                        </th>
-                        <td>{{ treasure.material }}</td>
-                    </tr>
-                    <tr>
-                        <th>
-                             <img src="{% static 'images/location-icon.png' %}" >
-                            Location: 
-                        </th>
-                        <td>{{ treasure.location }}</td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <img src="{% static 'images/value-icon.png' %}" >
-                            Value: 
-                        </th>
-                        <td>{% if treasure.value > 0 %}
-                                {{ treasure.value }}
-                            {% else %}
-                                Unknown
-                            {% endif %}
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        {% endfor %}
+          </div>
         </div>
-    </main>
-    </body>
+
+      </div>
+      {% if forloop.counter|divisibleby:3 %}
+        </div><br><div class="row">
+      {% endif %}
+    {% endfor %}
+    </div><br>
+  </main>
+
+  <footer class="footer container text-center" role="contentinfo">
+  <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
+  © TreasureGram 2016
+  <img src="{% static 'images/brand-icon.png' %}" height="50" alt="">
+</footer>
+</body>
 </html>
