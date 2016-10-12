@@ -1,0 +1,35 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'style.css' %}" rel="stylesheet" media="screen">
+    <title>TreasureGram</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-static-top text-center" role="navigation">
+      <a href="/"><img src="{% static "images/logo.png" %}" height="90"  ></a>
+    </nav>
+       <div class="treasure panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{ treasure.name }}</h3>
+          </div> 
+          <div class="panel-body">
+            <div class="treasure-photo-detail">
+              <img src="{{ treasure.img_url }}" >
+            </div>
+            <table class = "treasure-table">
+                <tr>
+                    <th>
+                        <img src="{% static "images/material-icon.png" %}">
+                        Material:
+                    </th>
+                    <td>{{ treasure.material }}</td>
+                </tr>
+            </table>
+          </div>
+        </div>
+</body>
+</html>

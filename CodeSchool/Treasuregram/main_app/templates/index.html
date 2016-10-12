@@ -17,7 +17,7 @@
     <div class="row">
     {% for treasure in treasures %}
       <div class="col-md-4">
-
+        <a href="/{{ treasure.id }}/">
         <div class="treasure panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">{{ treasure.name }}</h3>
@@ -27,6 +27,7 @@
               <img src="{{ treasure.img_url }}" >
             </div>
           </div>
+          </a>
         </div>
 
       </div>
