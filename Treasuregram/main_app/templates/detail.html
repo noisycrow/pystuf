@@ -1,24 +1,15 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
 
-<!DOCTYPE html>
-<html lang = "en">
-<head>
-    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet" media="screen">
-    <link href="{% static 'style.css' %}" rel="stylesheet" media="screen">
-    <title>TreasureGram</title>
-</head>
-<body>
+{% block content %}
 
-    <nav class="navbar navbar-default navbar-static-top text-center" role="navigation">
-      <a href="/"><img src="{% static "images/logo.png" %}" height="90"  ></a>
-    </nav>
        <div class="treasure panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">{{ treasure.name }}</h3>
           </div> 
           <div class="panel-body">
             <div class="treasure-photo-detail">
-              <img src="{{ treasure.img_url }}" >
+              <img src="{{ treasure.img_url }}" height=100 width=100>
             </div>
             <table class = "treasure-table">
                 <tr>
@@ -31,5 +22,5 @@
             </table>
           </div>
         </div>
-</body>
-</html>
+
+{% endblock %}

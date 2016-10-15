@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+    <div class="row">
+    {% for treasure in treasures %}
+      <div class="col-md-4">
+        <a href="/{{ treasure.id }}/">
+        <div class="treasure panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{ treasure.name }}</h3>
+          </div> 
+          <div class="panel-body">
+            <div class="treasure-photo">
+              <img src="{{ treasure.img_url }}" height="100" width="100">
+            </div>
+          </div>
+          </a>
+        </div>
+
+      </div>
+      {% if forloop.counter|divisibleby:3 %}
+        </div><br><div class="row">
+      {% endif %}
+    {% endfor %}
+    </div><br>
+    <div class="treasure panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Treasure</h3>
+      </div>
+      <div class="panel-body">
+        <form action="post_url/" method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    </div>
+
+{% endblock %}
+
