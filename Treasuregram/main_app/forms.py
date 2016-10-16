@@ -4,7 +4,7 @@ from .models import Treasure
 class TreasureForm(forms.ModelForm):
     class Meta:
         model = Treasure
-        fields = ['name','value','location','material','img_url']
+        fields = ['name','value','location','material','image']
 
 """
 class TreasureForm(forms.Form):
